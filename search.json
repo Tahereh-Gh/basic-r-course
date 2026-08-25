@@ -1,0 +1,606 @@
+[
+  {
+    "objectID": "missions/06-final-challenge.html",
+    "href": "missions/06-final-challenge.html",
+    "title": "🎓 Final challenge: prove your setup works",
+    "section": "",
+    "text": "⏱️ About 5 minutes · do this in RStudio, using your Mission 1 project\nOne last script. If every line here runs the way it’s described, your setup — and you — are R Ready.\nIn R/analysis.R, clear out anything left over from earlier missions and run this, one line at a time:\nCheck the output against your project’s folder name. If it’s wrong, stop here and revisit Mission 1 — everything below depends on this being right.\nIf this errors, it’s almost always a Mission 2 problem — check Help → R cannot find my file.\nYou should get a single number back — the average score across all participants.\nThis should fail to find the file — wrong on purpose: participants_backup.csv isn’t a file you actually have. Read the message, confirm it’s the same shape of error you saw in Mission 4, then move on (no need to fix this one, it was only ever meant to fail).",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🎓 Final challenge: prove your setup works"
+    ]
+  },
+  {
+    "objectID": "missions/06-final-challenge.html#youre-r-ready-if",
+    "href": "missions/06-final-challenge.html#youre-r-ready-if",
+    "title": "🎓 Final challenge: prove your setup works",
+    "section": "You’re R Ready if…",
+    "text": "You’re R Ready if…\n\ngetwd() pointed at your project folder.\nparticipants loaded with no red errors.\nYou got a real number back from mean(participants$score).\nStep 4’s deliberate mistake didn’t rattle you — you read it, understood why, and moved on.\n\n\n\n\n\n\n\nTipNothing left to install, configure, or memorize\n\n\n\nIf something does go sideways between now and the course — or during it — Help! 😱 is the same page your instructors will point you to instead of re-explaining from scratch.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🎓 Final challenge: prove your setup works"
+    ]
+  },
+  {
+    "objectID": "missions/06-final-challenge.html#get-your-r-passport",
+    "href": "missions/06-final-challenge.html#get-your-r-passport",
+    "title": "🎓 Final challenge: prove your setup works",
+    "section": "🛂 Get your R Passport",
+    "text": "🛂 Get your R Passport\nYou made it through every mission. Type your name and collect your passport:\n\n\n\nGet my R Passport 🛂\n\n\nR Ready · Basic R Course · \n🎉 Congratulations!\n\nR READY ✓\nYour setup works, and so do you.See you at the course! 👋",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🎓 Final challenge: prove your setup works"
+    ]
+  },
+  {
+    "objectID": "missions/04-errors.html",
+    "href": "missions/04-errors.html",
+    "title": "🐛 Mission 4: Break R on purpose",
+    "section": "",
+    "text": "⏱️ About 10 minutes · do this in RStudio, using your Mission 1 project\nCongratulations. Your job for the next ten minutes is to make R angry, on purpose, in a setting where it doesn’t cost you anything. The point isn’t to learn to avoid errors — you can’t, everyone gets them, every day, forever. The point is to see a handful of them once, calmly, before day one, so they’re familiar instead of frightening.\nOpen the project from Mission 1 and use R/analysis.R for all of this.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🐛 Mission 4: Break R on purpose"
+    ]
+  },
+  {
+    "objectID": "missions/04-errors.html#round-1-break-your-own-path",
+    "href": "missions/04-errors.html#round-1-break-your-own-path",
+    "title": "🐛 Mission 4: Break R on purpose",
+    "section": "Round 1: break your own path",
+    "text": "Round 1: break your own path\nYou already know this one works:\nread.csv(\"data/participants.csv\")\nRun it, confirm it works. Now:\n\nIn your file explorer (not RStudio), rename the data folder to data-old.\nRun the exact same line again.\nRead the error. It should say something like cannot open file 'data/participants.csv': No such file or directory.\nRename the folder back to data, run it once more, confirm it works again.\n\nThis is the Mission 2 mental model made real: R went looking for 🏠 → data → participants.csv, and for a minute, that middle step didn’t exist.\n\n\n\n\n\n\nNoteWhy rename to data-old, and not just Data?\n\n\n\n\n\nOn Windows and (usually) macOS, file and folder names are treated as case-insensitive — data and Data point to the same folder, so that swap wouldn’t actually break anything for most of you, and the exercise would quietly fail to make its point. It still matters to match case anyway: the moment a script gets shared with someone on Linux, or run on a university computing cluster, case starts counting for real. Better to build the habit now than get caught out later.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🐛 Mission 4: Break R on purpose"
+    ]
+  },
+  {
+    "objectID": "missions/04-errors.html#round-2-a-small-gallery-of-classics",
+    "href": "missions/04-errors.html#round-2-a-small-gallery-of-classics",
+    "title": "🐛 Mission 4: Break R on purpose",
+    "section": "Round 2: a small gallery of classics",
+    "text": "Round 2: a small gallery of classics\nRun each of these, one at a time, and actually read what R says before moving to the next.\nmean(age\nYou’ll notice the Console prompt changes from &gt; to + and nothing happens — R thinks you’re still mid-sentence. Press Esc to cancel it, then look closely: the closing ) is missing.\nMean(age)\nError in Mean(age) : could not find function \"Mean\"\nR is case-sensitive. Mean and mean are two completely different names as far as R is concerned — and only one of them exists.\nmy data &lt;- 10\nError: unexpected symbol in \"my data\"\nObject names can’t contain spaces. R reads my and data as two separate things and has no idea what to do with them side by side.\n\n\n\n\n\n\nTipAnatomy of an error message\n\n\n\n\n\nTake Error in Mean(age) : could not find function \"Mean\" apart:\n\nError in Mean(age) — where it happened: while trying to run Mean(age).\ncould not find function \"Mean\" — what went wrong, in R’s own words.\n\nError messages are R telling you exactly what it was trying to do when it got stuck. They’re not a verdict on you — they’re a debugging hint, written by the machine, for you.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🐛 Mission 4: Break R on purpose"
+    ]
+  },
+  {
+    "objectID": "missions/04-errors.html#the-reframe",
+    "href": "missions/04-errors.html#the-reframe",
+    "title": "🐛 Mission 4: Break R on purpose",
+    "section": "The reframe",
+    "text": "The reframe\n\n\n\n\n\n\nImportant\n\n\n\nErrors are part of programming. The important question is not “Did I get an error?” but “What is R trying to tell me?”\n\n\nEvery single person in this course will see red error text on day one — including the people who’ve used R for years. What changes with experience isn’t how often you see errors, it’s how calmly you read them.\nStuck on one that doesn’t look like these? Check Help! 😱 — same page you’ll reach for during the course itself.\nNext up: Mission 5 — Your first research dataset →",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🐛 Mission 4: Break R on purpose"
+    ]
+  },
+  {
+    "objectID": "missions/02-paths.html",
+    "href": "missions/02-paths.html",
+    "title": "🗺️ Mission 2: Help R find your files",
+    "section": "",
+    "text": "⏱️ About 10–15 minutes · do this in RStudio",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗺️ Mission 2: Help R find your files"
+    ]
+  },
+  {
+    "objectID": "missions/02-paths.html#r-needs-a-starting-point",
+    "href": "missions/02-paths.html#r-needs-a-starting-point",
+    "title": "🗺️ Mission 2: Help R find your files",
+    "section": "R needs a starting point",
+    "text": "R needs a starting point\nYou’ll usually see paths explained like this:\n\nA relative path is relative to your working directory.\n\nWhich is correct, and not very useful the first time you read it. Try this instead:\n\n\n\n\n\n\nNoteThe mental model\n\n\n\nYour RStudio Project (from Mission 1) says:\n🏠 “Start looking from here.”\nSo when your code says:\nread_csv(\"data/study.csv\")\nit means:\nStart at 🏠 → open data → find study.csv.\n\n\nThat’s it. Every relative path (a path that doesn’t start with a drive letter or /) is read as directions from that one starting point — not from your Desktop, not from wherever the file explorer happens to be pointing.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗺️ Mission 2: Help R find your files"
+    ]
+  },
+  {
+    "objectID": "missions/02-paths.html#asking-r-where-it-thinks-it-is",
+    "href": "missions/02-paths.html#asking-r-where-it-thinks-it-is",
+    "title": "🗺️ Mission 2: Help R find your files",
+    "section": "Asking R where it thinks it is",
+    "text": "Asking R where it thinks it is\nNow that you have the mental model, meet the function:\ngetwd()\nThink of it as: “R, where do you think you are right now?” It answers with the folder your Project called 🏠. If you ever get “file not found” and you’re not sure why, getwd() is the first thing to run — it tells you where R is actually starting its search from.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗺️ Mission 2: Help R find your files"
+    ]
+  },
+  {
+    "objectID": "missions/02-paths.html#quiz-which-path-should-r-use",
+    "href": "missions/02-paths.html#quiz-which-path-should-r-use",
+    "title": "🗺️ Mission 2: Help R find your files",
+    "section": "Quiz: which path should R use?",
+    "text": "Quiz: which path should R use?\nImagine this project:\nbasic-r/\n├── basic-r.Rproj\n├── data/\n│   └── penguins.csv\n└── analysis.R\nYou’ve opened basic-r.Rproj, and you’re writing code in analysis.R to read penguins.csv. Which path should you use? Click one:\n\nWhich path should R use?\nA. \"penguins.csv\"\nB. \"data/penguins.csv\"\nC. \"basic-r/data/penguins.csv\"\nD. \"C:/Users/Anna/Desktop/basic-r/data/penguins.csv\"",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗺️ Mission 2: Help R find your files"
+    ]
+  },
+  {
+    "objectID": "missions/02-paths.html#try-it-yourself",
+    "href": "missions/02-paths.html#try-it-yourself",
+    "title": "🗺️ Mission 2: Help R find your files",
+    "section": "Try it yourself",
+    "text": "Try it yourself\nIn the project you made in Mission 1:\n\nOpen R/analysis.R.\nRun getwd() — confirm it points to your my-first-r-project folder.\nAdd this line and run it:\n\nlist.files(\"data\")\nYou should see participants.csv in the output. If you get character(0) (an empty result) instead, getwd() isn’t pointing where you think — that’s your clue to go back and check you opened the .Rproj file, not a loose script.\n\n\n\n\n\n\nWarningA Windows-specific gotcha\n\n\n\nWindows shows file paths with backslashes, like data\\study.csv. In R, always use forward slashes instead — data/study.csv — even on Windows. A backslash means something special to R, so paths copy-pasted straight from Windows Explorer will usually break.\n\n\nNext up: Mission 3 — Learn R’s language →",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗺️ Mission 2: Help R find your files"
+    ]
+  },
+  {
+    "objectID": "missions/00-check.html",
+    "href": "missions/00-check.html",
+    "title": "🚦 Mission 0: Are you R Ready?",
+    "section": "",
+    "text": "⏱️ About 2 minutes · no coding yet\n\nThis isn’t a test — there’s no score to fail. It’s just a quick way to see which of the next missions matter most for you. If you’ve never touched R before, expect to answer “not really” a lot, and that’s exactly the point of this whole pre-course.\nRead each statement. Be honest, not aspirational.\n\n1. I have R and RStudio installed, and RStudio opens without an error. (Not R alone — you need both. R is the engine, RStudio is the dashboard.)\n2. I know what an “RStudio Project” is, and I’ve created one before.\n3. If someone asked “what’s your current working directory?”, I could answer without googling it.\n4. I know roughly what &lt;-, (), and $ each do in R.\n5. When R shows me a red error message, my first reaction is to read it, not to panic.\n\n\n\n\n\n\n\nTipHow to read your results\n\n\n\n\n\nEvery unchecked box points straight at a mission:\n\n\n\nUnchecked\nGo to\n\n\n\n\n1\nInstall R and RStudio first — see your course welcome email, or ask us before continuing here.\n\n\n2\nMission 1 — Give your analysis a home\n\n\n3\nMission 2 — Help R find your files\n\n\n4\nMission 3 — Learn R’s language\n\n\n5\nMission 4 — Break R on purpose\n\n\n\nChecked everything? Great — skim the missions anyway, then jump straight to the final challenge to confirm your setup actually works end to end.\n\n\n\nNext up: Mission 1 — Give your analysis a home →",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🚦 Mission 0: Are you R Ready?"
+    ]
+  },
+  {
+    "objectID": "help/README - extra.html",
+    "href": "help/README - extra.html",
+    "title": "R Ready — Basic R pre-course site",
+    "section": "",
+    "text": "A Quarto website, built as pre-course material for the Basic R course - Aarhus University.\nLive at: https://tahereh-gh.github.io/basic-r-course/ Repo: https://github.com/Tahereh-Gh/basic-r-course\n\n\nRequires Quarto — already installed on this machine.\nFrom the Basic R Course folder (one level up from here), run:\nquarto preview r-ready\nor, from inside this r-ready folder itself:\nquarto preview\nEither way: it builds the site, opens it in your default browser automatically, and live-reloads every time you save a .qmd file. Press Ctrl+C in the terminal to stop it.\n\n\n\nContent complete: home page, all 7 missions (00–06), and the full Help section. Mission 3 has live, runnable R in the browser (webR); Mission 2 has an interactive click-and-get-feedback quiz; the final challenge ends with an animated “R Passport.”\nPublished: pushed to GitHub (main branch) and live on GitHub Pages (gh-pages branch). See “Publish to GitHub Pages” below for how to push updates.\n\n\n\n\nDataset: Missions 1, 5, and 6 all use one small synthetic file, downloads/participants.csv (id/age/group/score, made up, not real course data) — deliberately generic since it wasn’t clear yet whether the course itself would use climate.xlsx or something else. It’s registered in _quarto.yml under project: resources: — if you add more downloadable files, add their folder there too, or Quarto won’t copy them into _site/. If the course settles on a real dataset, swap this file and update the three missions that reference it (search for participants.csv).\nLive R (webR): Mission 3 uses the quarto-webr extension (installed under _extensions/coatless/webr/) for in-browser, no-install-needed R cells (```{webr-r}). It needs engine: knitr + filters: [webr] in that page’s front matter — building it requires R + knitr installed locally (they are, on this machine), but viewing the page needs nothing but a browser, since webR itself runs client-side via WebAssembly. First cell on a page takes a few seconds to initialize (downloads the R runtime); later cells on the same page are instant and share the same R session/objects.\nInteractive quiz: the click-and-get-feedback widget (Mission 2) and the R Passport (final challenge) are both plain HTML/CSS/JS — no extra dependency. Markup pattern and behavior live in _includes/site-scripts.html (shared JS, injected on every page via include-after-body in _quarto.yml) and the .rr-quiz / .rr-passport rules in styles.scss. To add another quiz elsewhere, copy the .rr-quiz block from missions/02-paths.qmd and change data-answer/data-option/data-feedback.\nRStudio diagram (Mission 1): a real screenshot (images/rstudio-panes.png) with the ①②③④ pane labels and highlight boxes overlaid via CSS (.rr-pane-box / .rr-pane-badge in styles.scss), not baked into the image itself — see the .rr-diagram-photo block in missions/01-projects.qmd. To swap in a newer screenshot later, replace the PNG and nudge the left/top/width/height percentages on the overlay &lt;span&gt;s if the pane layout has shifted.\nMissions 4 and 6 deliberately avoid case-only filename changes (e.g. data → Data) as a way to trigger an error — Windows and default Mac filesystems are case-insensitive, so that wouldn’t actually break for most students. They use real renames/wrong filenames instead, which fail everywhere.\nThe Help → “Tahereh or Genona” names are hardcoded in help/index.qmd; update if that page ever gets used for a different course or instructor pairing.\n\n\n\n\nTo update the live site after editing content:\n\nCommit your changes on main as usual (git add, git commit, git push).\nFrom inside r-ready/, run:\n\nbash republish.sh\nrepublish.sh re-renders the site and pushes the result to gh-pages (the worktree dance below, scripted). Or do it by hand:\ngit worktree add --detach /c/ghpwt-tmp\ncd /c/ghpwt-tmp\ngit checkout --orphan gh-pages\ngit rm -rf . -q\ncp -r \"/path/to/r-ready/_site/.\" .\ntouch .nojekyll\ngit add -A && git commit -m \"Publish site\"\ngit push origin gh-pages -f\ncd - && git worktree remove /c/ghpwt-tmp --force\nWhy not quarto publish gh-pages? That’s the normal one-command way to do this, and it works fine for brand-new repos in most setups — but on this machine it refused with “the remote origin does not have a branch named gh-pages”, even freshly initialized, even with --no-prompt/piped confirmation. The worktree approach above is what actually worked and is what’s used now. If a future Quarto/environment update fixes this, quarto publish gh-pages is the simpler path to retry.\nGotcha hit while setting this up: don’t run the orphan-branch steps (git checkout --orphan, git rm -rf .) directly inside the r-ready working copy, even “temporarily” — if a cd into a worktree silently fails (e.g. Windows’ ~260-character path limit, easy to hit with a deeply nested temp folder + this extension’s long filenames), those commands run in r-ready itself instead and wipe the working directory. Always use a separate, short-path worktree (e.g. C:\\ghpwt-tmp, not something nested under a long temp/session path), and verify pwd before running anything destructive. (Recovery, if it happens again: the files are still safe in the main branch’s history — git switch main restores everything.)\nLive URL: https://tahereh-gh.github.io/basic-r-course/ — GitHub enabled Pages automatically the moment the gh-pages branch was pushed; no manual Settings step was needed.\nSee https://quarto.org/docs/publishing/github-pages.html for details.\n\n\n\nr-ready/\n├── _quarto.yml          site config, navigation\n├── styles.scss           theme + small custom styles\n├── index.qmd             home page\n├── missions/              the \"Before the course\" missions, 00–06\n├── help/                  the \"Help! 😱\" troubleshooting section\n├── downloads/             files students download (participants.csv)\n├── _includes/             shared JS (quiz + R Passport interactivity)\n└── _extensions/           quarto-webr, for Mission 3's live R cells"
+  },
+  {
+    "objectID": "help/README - extra.html#preview-it-in-your-browser",
+    "href": "help/README - extra.html#preview-it-in-your-browser",
+    "title": "R Ready — Basic R pre-course site",
+    "section": "",
+    "text": "Requires Quarto — already installed on this machine.\nFrom the Basic R Course folder (one level up from here), run:\nquarto preview r-ready\nor, from inside this r-ready folder itself:\nquarto preview\nEither way: it builds the site, opens it in your default browser automatically, and live-reloads every time you save a .qmd file. Press Ctrl+C in the terminal to stop it."
+  },
+  {
+    "objectID": "help/README - extra.html#status",
+    "href": "help/README - extra.html#status",
+    "title": "R Ready — Basic R pre-course site",
+    "section": "",
+    "text": "Content complete: home page, all 7 missions (00–06), and the full Help section. Mission 3 has live, runnable R in the browser (webR); Mission 2 has an interactive click-and-get-feedback quiz; the final challenge ends with an animated “R Passport.”\nPublished: pushed to GitHub (main branch) and live on GitHub Pages (gh-pages branch). See “Publish to GitHub Pages” below for how to push updates."
+  },
+  {
+    "objectID": "help/README - extra.html#notes-for-whoever-edits-this-next",
+    "href": "help/README - extra.html#notes-for-whoever-edits-this-next",
+    "title": "R Ready — Basic R pre-course site",
+    "section": "",
+    "text": "Dataset: Missions 1, 5, and 6 all use one small synthetic file, downloads/participants.csv (id/age/group/score, made up, not real course data) — deliberately generic since it wasn’t clear yet whether the course itself would use climate.xlsx or something else. It’s registered in _quarto.yml under project: resources: — if you add more downloadable files, add their folder there too, or Quarto won’t copy them into _site/. If the course settles on a real dataset, swap this file and update the three missions that reference it (search for participants.csv).\nLive R (webR): Mission 3 uses the quarto-webr extension (installed under _extensions/coatless/webr/) for in-browser, no-install-needed R cells (```{webr-r}). It needs engine: knitr + filters: [webr] in that page’s front matter — building it requires R + knitr installed locally (they are, on this machine), but viewing the page needs nothing but a browser, since webR itself runs client-side via WebAssembly. First cell on a page takes a few seconds to initialize (downloads the R runtime); later cells on the same page are instant and share the same R session/objects.\nInteractive quiz: the click-and-get-feedback widget (Mission 2) and the R Passport (final challenge) are both plain HTML/CSS/JS — no extra dependency. Markup pattern and behavior live in _includes/site-scripts.html (shared JS, injected on every page via include-after-body in _quarto.yml) and the .rr-quiz / .rr-passport rules in styles.scss. To add another quiz elsewhere, copy the .rr-quiz block from missions/02-paths.qmd and change data-answer/data-option/data-feedback.\nRStudio diagram (Mission 1): a real screenshot (images/rstudio-panes.png) with the ①②③④ pane labels and highlight boxes overlaid via CSS (.rr-pane-box / .rr-pane-badge in styles.scss), not baked into the image itself — see the .rr-diagram-photo block in missions/01-projects.qmd. To swap in a newer screenshot later, replace the PNG and nudge the left/top/width/height percentages on the overlay &lt;span&gt;s if the pane layout has shifted.\nMissions 4 and 6 deliberately avoid case-only filename changes (e.g. data → Data) as a way to trigger an error — Windows and default Mac filesystems are case-insensitive, so that wouldn’t actually break for most students. They use real renames/wrong filenames instead, which fail everywhere.\nThe Help → “Tahereh or Genona” names are hardcoded in help/index.qmd; update if that page ever gets used for a different course or instructor pairing."
+  },
+  {
+    "objectID": "help/README - extra.html#publish-to-github-pages",
+    "href": "help/README - extra.html#publish-to-github-pages",
+    "title": "R Ready — Basic R pre-course site",
+    "section": "",
+    "text": "To update the live site after editing content:\n\nCommit your changes on main as usual (git add, git commit, git push).\nFrom inside r-ready/, run:\n\nbash republish.sh\nrepublish.sh re-renders the site and pushes the result to gh-pages (the worktree dance below, scripted). Or do it by hand:\ngit worktree add --detach /c/ghpwt-tmp\ncd /c/ghpwt-tmp\ngit checkout --orphan gh-pages\ngit rm -rf . -q\ncp -r \"/path/to/r-ready/_site/.\" .\ntouch .nojekyll\ngit add -A && git commit -m \"Publish site\"\ngit push origin gh-pages -f\ncd - && git worktree remove /c/ghpwt-tmp --force\nWhy not quarto publish gh-pages? That’s the normal one-command way to do this, and it works fine for brand-new repos in most setups — but on this machine it refused with “the remote origin does not have a branch named gh-pages”, even freshly initialized, even with --no-prompt/piped confirmation. The worktree approach above is what actually worked and is what’s used now. If a future Quarto/environment update fixes this, quarto publish gh-pages is the simpler path to retry.\nGotcha hit while setting this up: don’t run the orphan-branch steps (git checkout --orphan, git rm -rf .) directly inside the r-ready working copy, even “temporarily” — if a cd into a worktree silently fails (e.g. Windows’ ~260-character path limit, easy to hit with a deeply nested temp folder + this extension’s long filenames), those commands run in r-ready itself instead and wipe the working directory. Always use a separate, short-path worktree (e.g. C:\\ghpwt-tmp, not something nested under a long temp/session path), and verify pwd before running anything destructive. (Recovery, if it happens again: the files are still safe in the main branch’s history — git switch main restores everything.)\nLive URL: https://tahereh-gh.github.io/basic-r-course/ — GitHub enabled Pages automatically the moment the gh-pages branch was pushed; no manual Settings step was needed.\nSee https://quarto.org/docs/publishing/github-pages.html for details."
+  },
+  {
+    "objectID": "help/README - extra.html#structure",
+    "href": "help/README - extra.html#structure",
+    "title": "R Ready — Basic R pre-course site",
+    "section": "",
+    "text": "r-ready/\n├── _quarto.yml          site config, navigation\n├── styles.scss           theme + small custom styles\n├── index.qmd             home page\n├── missions/              the \"Before the course\" missions, 00–06\n├── help/                  the \"Help! 😱\" troubleshooting section\n├── downloads/             files students download (participants.csv)\n├── _includes/             shared JS (quiz + R Passport interactivity)\n└── _extensions/           quarto-webr, for Mission 3's live R cells"
+  },
+  {
+    "objectID": "help/object-not-found.html",
+    "href": "help/object-not-found.html",
+    "title": "❓ Object not found",
+    "section": "",
+    "text": "Error in mean(age) : object 'age' not found",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "❓ Object not found"
+    ]
+  },
+  {
+    "objectID": "help/object-not-found.html#what-you-see",
+    "href": "help/object-not-found.html#what-you-see",
+    "title": "❓ Object not found",
+    "section": "",
+    "text": "Error in mean(age) : object 'age' not found",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "❓ Object not found"
+    ]
+  },
+  {
+    "objectID": "help/object-not-found.html#what-it-means",
+    "href": "help/object-not-found.html#what-it-means",
+    "title": "❓ Object not found",
+    "section": "What it means",
+    "text": "What it means\nRemember the Mission 3 model: an object is a labelled box. This error means the box you’re asking for was never actually created — R looked for something named age and came up empty.\nThat happens for one of a few very ordinary reasons, almost never because R is “broken”:\n\nThe line that creates it never ran. You wrote age &lt;- 25 but ran later lines without ever running that one — easy to do when jumping around a script instead of running top to bottom.\nIt’s a typo. age and Age are different boxes to R. So are age and age (a trailing space, if it snuck into a copy-paste).\nYou restarted R. Every object you’ve created lives only in the current R session. Restarting R (or reopening RStudio) empties all the boxes — your script still has the code to recreate them, but you have to actually run it again.\nAn earlier line silently failed. If the line meant to create age threw its own error, R never got to create the box, and everything after it that depends on age will fail too.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "❓ Object not found"
+    ]
+  },
+  {
+    "objectID": "help/object-not-found.html#the-fix",
+    "href": "help/object-not-found.html#the-fix",
+    "title": "❓ Object not found",
+    "section": "The fix",
+    "text": "The fix\n\nCheck the Environment pane (top-right in RStudio) — it lists every object that currently exists. If age isn’t there, it’s genuinely not been created yet in this session.\nRun your script from the top, in order (Ctrl/Cmd + Shift + Enter runs the whole thing, or Ctrl/Cmd + Alt + B runs from the beginning to your cursor). This fixes the “ran things out of order” case immediately.\nScroll up to the line that’s supposed to create the object and check it ran without its own error first.\nCheck spelling and case against exactly how you wrote it originally.\n\nStill stuck? Run the specific line that’s supposed to create the object, on its own, and see what it actually does — that isolates the problem immediately.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "❓ Object not found"
+    ]
+  },
+  {
+    "objectID": "help/file-not-found.html",
+    "href": "help/file-not-found.html",
+    "title": "🔍 R cannot find my file",
+    "section": "",
+    "text": "Error: 'data/participants.csv' does not exist in current working directory\nor\nWarning message:\ncannot open file 'data/participants.csv': No such file or directory",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🔍 R cannot find my file"
+    ]
+  },
+  {
+    "objectID": "help/file-not-found.html#what-you-see",
+    "href": "help/file-not-found.html#what-you-see",
+    "title": "🔍 R cannot find my file",
+    "section": "",
+    "text": "Error: 'data/participants.csv' does not exist in current working directory\nor\nWarning message:\ncannot open file 'data/participants.csv': No such file or directory",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🔍 R cannot find my file"
+    ]
+  },
+  {
+    "objectID": "help/file-not-found.html#what-it-means",
+    "href": "help/file-not-found.html#what-it-means",
+    "title": "🔍 R cannot find my file",
+    "section": "What it means",
+    "text": "What it means\nR searched for that file starting from its current 🏠 (see Mission 2) and didn’t find it there. This is almost never a “your file is missing” problem — it’s a “R is looking in the wrong place, or the name doesn’t match exactly” problem.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🔍 R cannot find my file"
+    ]
+  },
+  {
+    "objectID": "help/file-not-found.html#the-fix",
+    "href": "help/file-not-found.html#the-fix",
+    "title": "🔍 R cannot find my file",
+    "section": "The fix",
+    "text": "The fix\nWork through these in order — one of them is almost always it:\n\nRun getwd(). Does the folder it reports match your project? If not, you likely opened a script directly instead of the .Rproj file — close RStudio and reopen via the .Rproj.\nRun list.files(\"data\") (or whichever folder should hold the file). Is your file actually listed? Check the spelling exactly — participant.csv isn’t participants.csv. Capitalisation (Data vs data) usually doesn’t matter on Windows or Mac, but it’s still worth matching exactly, since it will matter the moment this script runs on Linux or a shared server.\nCheck the file extension isn’t hidden. Windows sometimes hides extensions, so a file that looks like participants.csv in File Explorer might actually be participants.csv.xlsx or similar. In File Explorer, turn on “File name extensions” (View tab) to check.\nCheck your path uses forward slashes (data/participants.csv), not backslashes.\n\nStill stuck? Take a screenshot of the exact error and the output of getwd() and list.files(\".\") — that combination is almost always enough to spot it immediately.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🔍 R cannot find my file"
+    ]
+  },
+  {
+    "objectID": "help/code-wont-run.html",
+    "href": "help/code-wont-run.html",
+    "title": "🧩 My code just doesn’t run",
+    "section": "",
+    "text": "&gt; is R saying “ready for a new command.” + means “I’m still waiting — you haven’t finished your sentence yet.” Usually an unclosed (, [, {, or a quote mark that’s missing its partner.\n\n\n\nPress Esc in the Console to cancel and get back to &gt;. Then look at what you ran for a missing closing bracket or quote — count them if you have to. This is exactly what happened in Mission 4’s mean(age example.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🧩 My code just doesn't run"
+    ]
+  },
+  {
+    "objectID": "help/code-wont-run.html#symptom-the-console-shows-a-and-nothing-happens",
+    "href": "help/code-wont-run.html#symptom-the-console-shows-a-and-nothing-happens",
+    "title": "🧩 My code just doesn’t run",
+    "section": "",
+    "text": "&gt; is R saying “ready for a new command.” + means “I’m still waiting — you haven’t finished your sentence yet.” Usually an unclosed (, [, {, or a quote mark that’s missing its partner.\n\n\n\nPress Esc in the Console to cancel and get back to &gt;. Then look at what you ran for a missing closing bracket or quote — count them if you have to. This is exactly what happened in Mission 4’s mean(age example.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🧩 My code just doesn't run"
+    ]
+  },
+  {
+    "objectID": "help/code-wont-run.html#symptom-you-ran-a-line-and-nothing-seems-to-have-happened",
+    "href": "help/code-wont-run.html#symptom-you-ran-a-line-and-nothing-seems-to-have-happened",
+    "title": "🧩 My code just doesn’t run",
+    "section": "Symptom: you ran a line and nothing seems to have happened",
+    "text": "Symptom: you ran a line and nothing seems to have happened\n\nWhat it means\nProbably not true — R almost always does something, even if it’s invisible. Check:\n\nDid you actually run it? Clicking into a line doesn’t run it. In RStudio, Ctrl/Cmd + Enter runs the current line (or current selection) and moves on.\nWas something else highlighted/selected when you pressed run, so a different chunk of code executed instead of what you meant?\nDid it run but assign silently? age &lt;- 25 deliberately produces no visible output — that’s normal. Type age on its own afterward to confirm it worked.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🧩 My code just doesn't run"
+    ]
+  },
+  {
+    "objectID": "help/code-wont-run.html#symptom-red-text-vs.-yelloworange-text",
+    "href": "help/code-wont-run.html#symptom-red-text-vs.-yelloworange-text",
+    "title": "🧩 My code just doesn’t run",
+    "section": "Symptom: red text vs. yellow/orange text",
+    "text": "Symptom: red text vs. yellow/orange text\n\nWhat it means\nThese are not the same thing, and it matters which one you have:\n\nError (usually shown in red) — R stopped. Whatever you were trying to do did not happen. Everything below this that depends on it will also fail.\nWarning (usually yellow/orange) — R finished anyway, but wants you to know something looked off (e.g. NAs introduced by coercion). Worth reading, not automatically a problem — but also not automatically fine. Check whether the result looks like what you expected.\n\nStill stuck? Copy the exact text from the Console — the difference between “nothing ran” and “something ran but silently” is usually obvious once someone else can see exactly what’s there.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "🧩 My code just doesn't run"
+    ]
+  },
+  {
+    "objectID": "help/index.html",
+    "href": "help/index.html",
+    "title": "Help! 😱",
+    "section": "",
+    "text": "Stuck? Start here — before or during the course. This page exists so that in class, the answer can be “have a look at Help → [topic]” instead of re-explaining the same beginner snag five times a day.\nPick what’s happening:\n\n🔍 R cannot find my file — Error: 'data/x.csv' does not exist and friends.\n📦 A package won’t install — install.packages() fails, or library() says it’s not there.\n❓ Object not found — Error: object 'x' not found.\n🧩 My code just doesn’t run — nothing happens, or the console shows a + and won’t stop.\n\nNot seeing your problem? That’s expected — this page grows as real questions come up. If you’re a student hitting this during the live course, just ask; if you’re Tahereh or Genona adding to this page later, the pattern for each entry is: what you see → what it means → the fix, kept to a few lines each.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "Help! 😱"
+    ]
+  },
+  {
+    "objectID": "help/package-wont-install.html",
+    "href": "help/package-wont-install.html",
+    "title": "📦 A package won’t install",
+    "section": "",
+    "text": "This is actually two different problems that look similar. Work out which one you have first.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "📦 A package won't install"
+    ]
+  },
+  {
+    "objectID": "help/package-wont-install.html#problem-a-install.packages...-itself-fails",
+    "href": "help/package-wont-install.html#problem-a-install.packages...-itself-fails",
+    "title": "📦 A package won’t install",
+    "section": "Problem A: install.packages(...) itself fails",
+    "text": "Problem A: install.packages(...) itself fails\n\nWhat you see\nWarning message:\npackage 'tidyverse' is not available for this version of R\nor the install just hangs, or errors partway through with something mentioning a “CRAN mirror” or a network timeout.\n\n\nWhat it means\nR couldn’t download or install the package — usually a connectivity issue, not something wrong with your code.\n\n\nThe fix\n\nCheck you’re actually connected to the internet (obvious, but it’s the most common cause).\nTry a different CRAN mirror: install.packages(\"tidyverse\", repos = \"https://cloud.r-project.org\") sidesteps a slow or unreachable default mirror.\nRestart R (Session → Restart R in RStudio) and try again — a half-finished previous install can block a new one.\nCheck the package name is spelled correctly. install.packages(\"tidyvers\") fails for a completely different reason than a network issue, and the message can look similar at a glance.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "📦 A package won't install"
+    ]
+  },
+  {
+    "objectID": "help/package-wont-install.html#problem-b-it-installed-but-library...-wont-load-it",
+    "href": "help/package-wont-install.html#problem-b-it-installed-but-library...-wont-load-it",
+    "title": "📦 A package won’t install",
+    "section": "Problem B: it installed, but library(...) won’t load it",
+    "text": "Problem B: it installed, but library(...) won’t load it\n\nWhat you see\nError in library(tidyvers) : there is no package called 'tidyvers'\n\n\nWhat it means\nEither it’s a typo (R is case-sensitive here too — Tidyverse ≠ tidyverse), or it really did install, but into a different R library location than the one this R session is using (common if you have more than one version of R installed).\n\n\nThe fix\n\nRun installed.packages()[, \"Package\"] and search the output for the name you expect — if it’s not there, it isn’t actually installed; go back to Problem A.\nDouble check the exact spelling and lowercase/uppercase against the CRAN package page or the course materials.\nIf it’s listed but still won’t load, restart R and try library() again before anything else runs.\n\nStill stuck? Copy the exact red text and ask — package installation problems are usually solved in under a minute once someone can see the actual message.",
+    "crumbs": [
+      "Start here",
+      "Help! 😱",
+      "📦 A package won't install"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Ready",
+    "section": "",
+    "text": "Before the course starts, complete a few short missions.\nYou don’t need to know R yet. The goal isn’t to learn R early — it’s to make sure your computer, and you, are ready to hit the ground running on day one. Everything here is done at your own pace, in your own RStudio.",
+    "crumbs": [
+      "Start here",
+      "R Ready"
+    ]
+  },
+  {
+    "objectID": "index.html#your-missions",
+    "href": "index.html#your-missions",
+    "title": "R Ready",
+    "section": "Your missions",
+    "text": "Your missions\n\n\n\nMission\nTopic\nTime\n\n\n\n\n🚦 0. Are you R Ready?\nA 5-question self-check\n2 min\n\n\n🏠 1. Give your analysis a home\nRStudio Projects & folders\n10 min\n\n\n🗺️ 2. Help R find your files\nPaths & working directory\n10–15 min\n\n\n🗣️ 3. Learn R’s language\nObjects, functions, $, vectors\n10 min\n\n\n🐛 4. Break R on purpose\nErrors & debugging\n10 min\n\n\n🔬 5. Your first research dataset\nImport and inspect real data\n10 min\n\n\n🎓 Final challenge\nProve your setup works\n5 min\n\n\n\nStuck on something later, even during the course itself? Check Help! 😱 — it’s the same page your instructors will point you to in class instead of re-explaining the same thing five times.\n\n\n\n\n\n\nTipWhy bother with this before day one?\n\n\n\nThe most common thing that slows people down on day one isn’t R itself — it’s things like “where did I save that file” or “why can’t R find my data.” Those aren’t R problems, they’re computer-setup problems, and they’re much less stressful to sort out now, alone, than in a room full of people on a tight schedule.\n\n\nReady? Start with Mission 0 →",
+    "crumbs": [
+      "Start here",
+      "R Ready"
+    ]
+  },
+  {
+    "objectID": "missions/01-projects.html",
+    "href": "missions/01-projects.html",
+    "title": "🏠 Mission 1: Give your analysis a home",
+    "section": "",
+    "text": "⏱️ About 10 minutes · do this in RStudio",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🏠 Mission 1: Give your analysis a home"
+    ]
+  },
+  {
+    "objectID": "missions/01-projects.html#the-idea",
+    "href": "missions/01-projects.html#the-idea",
+    "title": "🏠 Mission 1: Give your analysis a home",
+    "section": "The idea",
+    "text": "The idea\nEvery analysis needs a home base — one folder that contains everything it needs: the data, the code, the output. In RStudio, that home base is called a Project.\n\n📁 Project folder = the home of your analysis 📁 data/ = where your data lives 📁 R/ = where your scripts live 📁 figures/ = where output can go\n\nWithout a project, R doesn’t know where “home” is, and you end up typing full file paths like C:/Users/Anna/Desktop/finally/actual-project-v2-FINAL/ — which breaks the moment you rename a folder, move the project, or open it on a different computer. A project fixes that: everything is found relative to the project, so the folder can move, get renamed, or get zipped and sent to a collaborator, and it still works.\n\n\n\n\n\n\nTipWhy not just use folders on your Desktop?\n\n\n\nYou can — RStudio doesn’t force you to use Projects. But without one, R’s “starting point” (see Mission 2) is whatever folder happened to be active when RStudio launched, which changes unpredictably. A Project pins that starting point to one fixed place.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🏠 Mission 1: Give your analysis a home"
+    ]
+  },
+  {
+    "objectID": "missions/01-projects.html#your-task",
+    "href": "missions/01-projects.html#your-task",
+    "title": "🏠 Mission 1: Give your analysis a home",
+    "section": "Your task",
+    "text": "Your task\nCreate this exact structure:\nmy-first-r-project/\n│\n├── my-first-r-project.Rproj\n│\n├── data/\n│   └── participants.csv\n│\n├── R/\n│   └── analysis.R\n│\n└── figures/\nStep by step:\n\nOpen RStudio.\nGo to File → New Project… → New Directory → New Project.\nName it my-first-r-project and choose where to save it (Desktop or Documents is fine).\nClick Create Project. RStudio will reopen inside your new project — check the top-right corner, it should now show my-first-r-project.\nIn the Files pane (bottom-right), click New Folder and create two folders: data and figures.\nCreate a folder called R, and inside it, a new R script: File → New File → R Script, save it as R/analysis.R.\n⬇ Download participants.csv and save it into your data/ folder. (A file you find yourself might not open cleanly — this one’s guaranteed to work, and you’ll use it again in later missions.)\n\n\n\n\n\n\n\nImportantThe one habit that prevents 90% of “R can’t find my stuff” problems\n\n\n\nAlways open your project by double-clicking the .Rproj file — never by opening a loose .R script directly. Opening the .Rproj file is what tells R “start here.” Opening a script by itself doesn’t.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🏠 Mission 1: Give your analysis a home"
+    ]
+  },
+  {
+    "objectID": "missions/01-projects.html#where-do-i-actually-type-code",
+    "href": "missions/01-projects.html#where-do-i-actually-type-code",
+    "title": "🏠 Mission 1: Give your analysis a home",
+    "section": "Where do I actually type code?",
+    "text": "Where do I actually type code?\nRStudio’s window is split into panes. You only need to know two of them for now:\n\n\n\n\n\n\n①\n②\n③\n④\n\n(This is a real screenshot from this project’s own RStudio — R 4.4.1, Project: (None) in the top-right, which is exactly the “before you make a Project” state this mission fixes.)\n\n① Source — a text editor for your .R script. Nothing here runs on its own; it’s just saved text until you tell R to run it.\n② Console — where code is actually executed, one command at a time. Anything you type directly here runs the instant you press Enter.\nThe connection between them: put your cursor on a line in the Source pane and press Ctrl+Enter (Windows) or ⌘+Enter (Mac) — or click the Run button — and that line gets sent down to the Console and runs.\n\n\n\n\n\n\n\nNoteWhat are Environment and Files/Plots/Help for?\n\n\n\n\n\nNot essential today, but for context: ③ Environment lists every object R currently has in memory (you’ll create your first ones in Mission 3). ④ Files/Plots/Help is a set of tabs — browse folders, view any plots you make, or read a function’s documentation.\n\n\n\n\nTry both\nIn R/analysis.R:\n\nType 2 + 2 and press Ctrl+Enter (or ⌘+Enter) with your cursor on that line. Watch it appear in the Console below, with the answer.\nNow click directly in the Console itself, type 2 + 2 again, and press Enter.\n\nSame result, two different starting points. The difference that matters: only what you write in the script gets saved when you save the file — anything typed straight into the Console is gone the moment you close RStudio. That’s why real work goes in the script, and the Console is more for quick one-off checks.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🏠 Mission 1: Give your analysis a home"
+    ]
+  },
+  {
+    "objectID": "missions/01-projects.html#check-yourself",
+    "href": "missions/01-projects.html#check-yourself",
+    "title": "🏠 Mission 1: Give your analysis a home",
+    "section": "Check yourself",
+    "text": "Check yourself\n\nYour project has a .Rproj file at the top level.\nYou have data/, R/, and figures/ folders inside it.\nThe top-right corner of RStudio shows your project’s name — not “Project: (None)”.\n\nIf all three are true, you’re done. If RStudio says “Project: (None)”, you opened a file instead of the project — close RStudio, find my-first-r-project.Rproj in your file explorer, and double-click that.\nNext up: Mission 2 — Help R find your files →",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🏠 Mission 1: Give your analysis a home"
+    ]
+  },
+  {
+    "objectID": "missions/03-language.html",
+    "href": "missions/03-language.html",
+    "title": "🗣️ Mission 3: Learn R’s language",
+    "section": "",
+    "text": "⏱️ About 10 minutes · try it live right here, no install needed",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗣️ Mission 3: Learn R's language"
+    ]
+  },
+  {
+    "objectID": "missions/03-language.html#r-isnt-a-list-of-commands-its-a-small-language",
+    "href": "missions/03-language.html#r-isnt-a-list-of-commands-its-a-small-language",
+    "title": "🗣️ Mission 3: Learn R’s language",
+    "section": "R isn’t a list of commands — it’s a small language",
+    "text": "R isn’t a list of commands — it’s a small language\nYou don’t need to memorize R. You need to recognize three pieces of grammar, because once you can read them, most R code becomes a sentence instead of a puzzle.\nEvery example below is live — click into the code and press Run, or just edit it and run your own version. Nothing you do here can break anything.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗣️ Mission 3: Learn R's language"
+    ]
+  },
+  {
+    "objectID": "missions/03-language.html#objects-labelled-boxes",
+    "href": "missions/03-language.html#objects-labelled-boxes",
+    "title": "🗣️ Mission 3: Learn R’s language",
+    "section": "1. Objects: labelled boxes",
+    "text": "1. Objects: labelled boxes\nage &lt;- 25\nRead &lt;- as “store this, under this name.” This line means: take the number 25, put it in a box, label the box age. From now on, typing age anywhere gets you back what’s in the box.\n\n🌐 Try it live — run it, then change 25 to your own age and run it again\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNoteWhy the arrow, not =?\n\n\n\nage = 25 also works in R, but &lt;- is the convention, and it’s worth keeping: it visually points in the direction the value is flowing — into the box.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗣️ Mission 3: Learn R's language"
+    ]
+  },
+  {
+    "objectID": "missions/03-language.html#functions-verbs-that-need-ingredients",
+    "href": "missions/03-language.html#functions-verbs-that-need-ingredients",
+    "title": "🗣️ Mission 3: Learn R’s language",
+    "section": "2. Functions: verbs that need ingredients",
+    "text": "2. Functions: verbs that need ingredients\nmean(age)\nA function name followed by parentheses is a verb — and whatever’s inside the parentheses are its ingredients (arguments). Read mean(age) as “compute the mean, using age as the ingredient.” Some verbs need more than one ingredient, separated by commas — round(3.14159, 2) reads as “round 3.14159, to 2 decimal places.”\n\n🌐 Try it live\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗣️ Mission 3: Learn R's language"
+    ]
+  },
+  {
+    "objectID": "missions/03-language.html#vectors-rs-basic-unit",
+    "href": "missions/03-language.html#vectors-rs-basic-unit",
+    "title": "🗣️ Mission 3: Learn R’s language",
+    "section": "3. Vectors: R’s basic unit",
+    "text": "3. Vectors: R’s basic unit\nR rarely stores just one thing — it stores vectors, which are just ordered collections of values of the same type. Here’s the twist: a single number, like the age above, actually is a vector — one with a length of 1. That’s why functions like mean() work the same way whether you give them one number or a thousand.\n\n🌐 Try it live\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗣️ Mission 3: Learn R's language"
+    ]
+  },
+  {
+    "objectID": "missions/03-language.html#try-it-translate-before-you-run",
+    "href": "missions/03-language.html#try-it-translate-before-you-run",
+    "title": "🗣️ Mission 3: Learn R’s language",
+    "section": "Try it: translate before you run",
+    "text": "Try it: translate before you run\nBefore you run this one, write in plain English (out loud, or in your head) what each line does. Then run it and check yourself against the last two lines.\n\n🌐 Try it live\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTipPrefer to do this in your own RStudio instead?\n\n\n\n\n\nEverything above works exactly the same typed into the Console of the project you made in Mission 1 — the live version here is just so you can try it with zero setup.\n\n\n\nNext up: Mission 4 — Break R on purpose →",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🗣️ Mission 3: Learn R's language"
+    ]
+  },
+  {
+    "objectID": "missions/05-first-dataset.html",
+    "href": "missions/05-first-dataset.html",
+    "title": "🔬 Mission 5: Your first research dataset",
+    "section": "",
+    "text": "⏱️ About 10 minutes · do this in RStudio, using your Mission 1 project\nTime to put Missions 1–3 to work on something real.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🔬 Mission 5: Your first research dataset"
+    ]
+  },
+  {
+    "objectID": "missions/05-first-dataset.html#get-the-data",
+    "href": "missions/05-first-dataset.html#get-the-data",
+    "title": "🔬 Mission 5: Your first research dataset",
+    "section": "Get the data",
+    "text": "Get the data\nGood news — you already have it. Remember participants.csv, the file you downloaded into data/ back in Mission 1? That’s what you’ll use here.\n(Skipped that step, or can’t find it? ⬇ Download participants.csv and save it into your project’s data/ folder now.)",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🔬 Mission 5: Your first research dataset"
+    ]
+  },
+  {
+    "objectID": "missions/05-first-dataset.html#import-it",
+    "href": "missions/05-first-dataset.html#import-it",
+    "title": "🔬 Mission 5: Your first research dataset",
+    "section": "Import it",
+    "text": "Import it\nIn R/analysis.R:\nparticipants &lt;- read.csv(\"data/participants.csv\")\nNotice the shape of that path — \"data/participants.csv\" — it’s the Mission 2 mental model again: start at 🏠, open data, find participants.csv.\n\n\n\n\n\n\nNoteNotice what you didn’t need\n\n\n\nNo install.packages(), no library() — reading a .csv is something base R can already do, no extra tools required. Later in the course you’ll meet library(), which loads add-on packages: extra tools that give R abilities it doesn’t have out of the box. Don’t worry about what that means yet — we’ll cover it properly on the course itself. For now, just notice that plenty of real work doesn’t need it.",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🔬 Mission 5: Your first research dataset"
+    ]
+  },
+  {
+    "objectID": "missions/05-first-dataset.html#get-to-know-it",
+    "href": "missions/05-first-dataset.html#get-to-know-it",
+    "title": "🔬 Mission 5: Your first research dataset",
+    "section": "Get to know it",
+    "text": "Get to know it\nDon’t analyze it yet — just look around, the way you’d skim a paper before reading it closely.\nparticipants             # print it\nstr(participants)         # what's the structure? how many variables, what types?\ndim(participants)          # rows, columns\nnames(participants)        # just the column names\nsummary(participants)      # a quick five-number summary of each column",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🔬 Mission 5: Your first research dataset"
+    ]
+  },
+  {
+    "objectID": "missions/05-first-dataset.html#answer-this-from-the-output-alone",
+    "href": "missions/05-first-dataset.html#answer-this-from-the-output-alone",
+    "title": "🔬 Mission 5: Your first research dataset",
+    "section": "Answer this from the output alone",
+    "text": "Answer this from the output alone\nUsing what dim() or str() told you: how many participants are in this dataset, and what does each row represent? (Hint: look at the column names — id, age, group, score. One row is one what?)\nYou don’t need to write the answer anywhere. If you can say it out loud in a sentence, you’ve done the mission.\nNext up: Final challenge — prove your setup works →",
+    "crumbs": [
+      "Start here",
+      "Before the course",
+      "🔬 Mission 5: Your first research dataset"
+    ]
+  }
+]

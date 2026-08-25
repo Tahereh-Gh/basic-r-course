@@ -1,6 +1,0 @@
-/_site/
-/.quarto/
-
-# stray local-testing files, not part of the site
-/example.R
-/participants.csv
