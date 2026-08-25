@@ -61,7 +61,7 @@ You made it through every mission. Type your name and collect your passport:
 <button type="button" class="rr-passport-button">Get my R Passport 🛂</button>
 </div>
 <div class="rr-passport-card">
-<div class="rr-passport-kicker">R Ready · Basic R Course · A340/01</div>
+<div class="rr-passport-kicker">R Ready · Basic R Course · </div>
 <div class="rr-passport-title">🎉 Congratulations!</div>
 <div class="rr-passport-name"></div>
 <span class="rr-passport-stamp">R READY ✓</span>
