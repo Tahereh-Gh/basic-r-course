@@ -1,0 +1,29 @@
+---
+title: "❓ Object not found"
+---
+
+## What you see
+
+```text
+Error in mean(age) : object 'age' not found
+```
+
+## What it means
+
+Remember the [Mission 3](../missions/03-language.qmd) model: an object is a labelled box. This error means **the box you're asking for was never actually created** — R looked for something named `age` and came up empty.
+
+That happens for one of a few very ordinary reasons, almost never because R is "broken":
+
+- **The line that creates it never ran.** You wrote `age <- 25` but ran later lines without ever running that one — easy to do when jumping around a script instead of running top to bottom.
+- **It's a typo.** `age` and `Age` are different boxes to R. So are `age` and `age ` (a trailing space, if it snuck into a copy-paste).
+- **You restarted R.** Every object you've created lives only in the current R session. Restarting R (or reopening RStudio) empties all the boxes — your *script* still has the code to recreate them, but you have to actually run it again.
+- **An earlier line silently failed.** If the line meant to create `age` threw its own error, R never got to create the box, and everything after it that depends on `age` will fail too.
+
+## The fix
+
+1. **Check the Environment pane** (top-right in RStudio) — it lists every object that currently exists. If `age` isn't there, it's genuinely not been created yet in this session.
+2. **Run your script from the top**, in order (Ctrl/Cmd + Shift + Enter runs the whole thing, or Ctrl/Cmd + Alt + B runs from the beginning to your cursor). This fixes the "ran things out of order" case immediately.
+3. **Scroll up** to the line that's supposed to create the object and check it ran without its own error first.
+4. **Check spelling and case** against exactly how you wrote it originally.
+
+Still stuck? Run the specific line that's supposed to create the object, on its own, and see what it actually does — that isolates the problem immediately.

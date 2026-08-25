@@ -1,0 +1,33 @@
+---
+title: "R Ready"
+subtitle: "Your Basic R pre-course"
+---
+
+Before the course starts, complete a few short missions.
+
+**You don't need to know R yet.** The goal isn't to learn R early — it's to make sure your computer, and you, are ready to hit the ground running on day one. Everything here is done at your own pace, in your own RStudio.
+
+::: {.callout-note appearance="simple"}
+Total time: **about 45–60 minutes**, split into small pieces. Do them in one sitting or spread across a few days — whatever fits.
+:::
+
+## Your missions
+
+| Mission | Topic | Time |
+|---|---|---:|
+| 🚦 [0. Are you R Ready?](missions/00-check.qmd) | A 5-question self-check | 2 min |
+| 🏠 [1. Give your analysis a home](missions/01-projects.qmd) | RStudio Projects & folders | 10 min |
+| 🗺️ [2. Help R find your files](missions/02-paths.qmd) | Paths & working directory | 10–15 min |
+| 🗣️ [3. Learn R's language](missions/03-language.qmd) | Objects, functions, `$`, vectors | 10 min |
+| 🐛 [4. Break R on purpose](missions/04-errors.qmd) | Errors & debugging | 10 min |
+| 🔬 [5. Your first research dataset](missions/05-first-dataset.qmd) | Import and inspect real data | 10 min |
+| 🎓 [Final challenge](missions/06-final-challenge.qmd) | Prove your setup works | 5 min |
+
+Stuck on something later, even during the course itself? Check **[Help! 😱](help/index.qmd)** — it's the same page your instructors will point you to in class instead of re-explaining the same thing five times.
+
+::: {.callout-tip}
+## Why bother with this before day one?
+The most common thing that slows people down on day one isn't R itself — it's things like "where did I save that file" or "why can't R find my data." Those aren't R problems, they're computer-setup problems, and they're much less stressful to sort out now, alone, than in a room full of people on a tight schedule.
+:::
+
+Ready? Start with [Mission 0 →](missions/00-check.qmd)

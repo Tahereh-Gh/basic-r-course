@@ -1,0 +1,50 @@
+---
+title: "🔬 Mission 5: Your first research dataset"
+---
+
+::: {.mission-meta}
+⏱️ About 10 minutes · do this in RStudio, using your Mission 1 project
+:::
+
+Time to put Missions 1–3 to work on something real.
+
+## Get the data
+
+Good news — you already have it. Remember `participants.csv`, the file you downloaded into `data/` back in [Mission 1](01-projects.qmd)? That's what you'll use here.
+
+(Skipped that step, or can't find it? **[⬇ Download participants.csv](../downloads/participants.csv)** and save it into your project's `data/` folder now.)
+
+## Import it
+
+In `R/analysis.R`:
+
+```r
+participants <- read.csv("data/participants.csv")
+```
+
+Notice the shape of that path — `"data/participants.csv"` — it's the [Mission 2](02-paths.qmd) mental model again: start at 🏠, open `data`, find `participants.csv`.
+
+::: {.callout-note}
+## Notice what you *didn't* need
+No `install.packages()`, no `library()` — reading a `.csv` is something base R can already do, no extra tools required. Later in the course you'll meet `library()`, which loads add-on **packages**: extra tools that give R abilities it doesn't have out of the box. Don't worry about what that means yet — we'll cover it properly on the course itself. For now, just notice that plenty of real work doesn't need it.
+:::
+
+## Get to know it
+
+Don't analyze it yet — just look around, the way you'd skim a paper before reading it closely.
+
+```r
+participants             # print it
+str(participants)         # what's the structure? how many variables, what types?
+dim(participants)          # rows, columns
+names(participants)        # just the column names
+summary(participants)      # a quick five-number summary of each column
+```
+
+## Answer this from the output alone
+
+Using what `dim()` or `str()` told you: **how many participants are in this dataset, and what does each row represent?** (Hint: look at the column names — `id`, `age`, `group`, `score`. One row is one *what*?)
+
+You don't need to write the answer anywhere. If you can say it out loud in a sentence, you've done the mission.
+
+Next up: [Final challenge — prove your setup works →](06-final-challenge.qmd)

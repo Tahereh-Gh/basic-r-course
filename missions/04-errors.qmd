@@ -1,0 +1,85 @@
+---
+title: "🐛 Mission 4: Break R on purpose"
+---
+
+::: {.mission-meta}
+⏱️ About 10 minutes · do this in RStudio, using your Mission 1 project
+:::
+
+Congratulations. Your job for the next ten minutes is to make R angry, on purpose, in a setting where it doesn't cost you anything. The point isn't to learn to avoid errors — you can't, everyone gets them, every day, forever. The point is to see a handful of them once, calmly, before day one, so they're familiar instead of frightening.
+
+Open the project from [Mission 1](01-projects.qmd) and use `R/analysis.R` for all of this.
+
+## Round 1: break your own path
+
+You already know this one works:
+
+```r
+read.csv("data/participants.csv")
+```
+
+Run it, confirm it works. Now:
+
+1. In your file explorer (not RStudio), rename the `data` folder to `data-old`.
+2. Run the exact same line again.
+3. Read the error. It should say something like `cannot open file 'data/participants.csv': No such file or directory`.
+4. Rename the folder back to `data`, run it once more, confirm it works again.
+
+This is the [Mission 2](02-paths.qmd) mental model made real: R went looking for 🏠 → `data` → `participants.csv`, and for a minute, that middle step didn't exist.
+
+::: {.callout-note collapse="true"}
+## Why rename to `data-old`, and not just `Data`?
+On Windows and (usually) macOS, file and folder *names* are treated as case-insensitive — `data` and `Data` point to the same folder, so that swap wouldn't actually break anything for most of you, and the exercise would quietly fail to make its point. It still matters to *match case anyway*: the moment a script gets shared with someone on Linux, or run on a university computing cluster, case starts counting for real. Better to build the habit now than get caught out later.
+:::
+
+## Round 2: a small gallery of classics
+
+Run each of these, one at a time, and actually read what R says before moving to the next.
+
+```r
+mean(age
+```
+
+You'll notice the Console prompt changes from `>` to `+` and nothing happens — R thinks you're still mid-sentence. Press `Esc` to cancel it, then look closely: the closing `)` is missing.
+
+```r
+Mean(age)
+```
+
+```text
+Error in Mean(age) : could not find function "Mean"
+```
+
+R is case-sensitive. `Mean` and `mean` are two completely different names as far as R is concerned — and only one of them exists.
+
+```r
+my data <- 10
+```
+
+```text
+Error: unexpected symbol in "my data"
+```
+
+Object names can't contain spaces. R reads `my` and `data` as two separate things and has no idea what to do with them side by side.
+
+::: {.callout-tip collapse="true"}
+## Anatomy of an error message
+Take `Error in Mean(age) : could not find function "Mean"` apart:
+
+- **`Error in Mean(age)`** — *where* it happened: while trying to run `Mean(age)`.
+- **`could not find function "Mean"`** — *what* went wrong, in R's own words.
+
+Error messages are R telling you exactly what it was trying to do when it got stuck. They're not a verdict on you — they're a debugging hint, written by the machine, for you.
+:::
+
+## The reframe
+
+::: {.callout-important}
+Errors are part of programming. The important question is not *"Did I get an error?"* but *"What is R trying to tell me?"*
+:::
+
+Every single person in this course will see red error text on day one — including the people who've used R for years. What changes with experience isn't how often you see errors, it's how calmly you read them.
+
+Stuck on one that doesn't look like these? Check [Help! 😱](../help/index.qmd) — same page you'll reach for during the course itself.
+
+Next up: [Mission 5 — Your first research dataset →](05-first-dataset.qmd)

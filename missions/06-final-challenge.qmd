@@ -1,0 +1,71 @@
+---
+title: "🎓 Final challenge: prove your setup works"
+---
+
+::: {.mission-meta}
+⏱️ About 5 minutes · do this in RStudio, using your Mission 1 project
+:::
+
+One last script. If every line here runs the way it's described, your setup — and you — are R Ready.
+
+In `R/analysis.R`, clear out anything left over from earlier missions and run this, one line at a time:
+
+```r
+# 1. Confirm R knows where home is
+getwd()
+```
+
+Check the output against your project's folder name. If it's wrong, stop here and revisit [Mission 1](01-projects.qmd) — everything below depends on this being right.
+
+```r
+# 2. Load a real dataset with a relative path — no library() needed
+participants <- read.csv("data/participants.csv")
+```
+
+If this errors, it's almost always a [Mission 2](02-paths.qmd) problem — check [Help → R cannot find my file](../help/file-not-found.qmd).
+
+```r
+# 3. Compute one real summary
+mean(participants$score)
+```
+
+You should get a single number back — the average score across all participants.
+
+```r
+# 4. Break it, on purpose, one more time
+oops <- read.csv("data/participants_backup.csv")
+```
+
+This should fail to find the file — wrong on purpose: `participants_backup.csv` isn't a file you actually have. Read the message, confirm it's the same shape of error you saw in [Mission 4](04-errors.qmd), then move on (no need to fix this one, it was only ever meant to fail).
+
+## You're R Ready if...
+
+- [ ] `getwd()` pointed at your project folder.
+- [ ] `participants` loaded with no red errors.
+- [ ] You got a real number back from `mean(participants$score)`.
+- [ ] Step 4's deliberate mistake didn't rattle you — you read it, understood why, and moved on.
+
+::: {.callout-tip}
+## Nothing left to install, configure, or memorize
+If something *does* go sideways between now and the course — or during it — [Help! 😱](../help/index.qmd) is the same page your instructors will point you to instead of re-explaining from scratch.
+:::
+
+## 🛂 Get your R Passport
+
+You made it through every mission. Type your name and collect your passport:
+
+```{=html}
+<div class="rr-passport">
+<div class="rr-passport-form">
+<input type="text" class="rr-passport-input" placeholder="Type your name" maxlength="60" aria-label="Your name">
+<button type="button" class="rr-passport-button">Get my R Passport 🛂</button>
+</div>
+<div class="rr-passport-card">
+<div class="rr-passport-kicker">R Ready · Basic R Course · A340/01</div>
+<div class="rr-passport-title">🎉 Congratulations!</div>
+<div class="rr-passport-name"></div>
+<span class="rr-passport-stamp">R READY ✓</span>
+<div class="rr-passport-msg">Your setup works, and so do you.<br>See you at the course! 👋</div>
+</div>
+</div>
+```

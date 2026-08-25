@@ -1,0 +1,51 @@
+project:
+  type: website
+  resources:
+    - "downloads/**"
+    - "images/**"
+
+website:
+  title: "R Ready 🚀"
+  description: "Your Basic R pre-course"
+  page-navigation: true
+  search: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Start here"
+      - href: missions/00-check.qmd
+        text: "Before the course"
+      - href: help/index.qmd
+        text: "Help! 😱"
+  sidebar:
+    style: floating
+    collapse-level: 1
+    contents:
+      - index.qmd
+      - section: "Before the course"
+        contents:
+          - missions/00-check.qmd
+          - missions/01-projects.qmd
+          - missions/02-paths.qmd
+          - missions/03-language.qmd
+          - missions/04-errors.qmd
+          - missions/05-first-dataset.qmd
+          - missions/06-final-challenge.qmd
+      - section: "Help! 😱"
+        contents:
+          - help/index.qmd
+          - help/file-not-found.qmd
+          - help/package-wont-install.qmd
+          - help/object-not-found.qmd
+          - help/code-wont-run.qmd
+
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    toc: true
+    number-sections: false
+    smooth-scroll: true
+    include-after-body: _includes/site-scripts.html
+    grid:
+      sidebar-width: 260px
+      body-width: 780px

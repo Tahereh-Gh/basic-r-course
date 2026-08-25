@@ -1,0 +1,270 @@
+/*-- scss:defaults --*/
+$primary: #2c6e49;
+$body-font-size: 1.05rem;
+$toc-font-size: 0.85rem;
+
+/*-- scss:rules --*/
+.mission-meta {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #495057;
+  background: #eef5f1;
+  border-radius: 999px;
+  padding: 0.2rem 0.85rem;
+  margin-bottom: 1.2rem;
+}
+
+blockquote {
+  border-left: 4px solid $primary;
+  background: #f4f9f6;
+  padding: 0.7rem 1.1rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.callout {
+  border-radius: 8px;
+}
+
+/* ---- diagrams ---- */
+.rr-diagram {
+  max-width: 720px;
+  margin: 1.2rem auto;
+}
+.rr-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .12));
+}
+.rr-diagram-photo {
+  position: relative;
+  line-height: 0;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, .15));
+}
+.rr-diagram-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #d0d5da;
+}
+.rr-pane-box {
+  position: absolute;
+  border-radius: 6px;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+.rr-pane-primary {
+  border: 3px solid $primary;
+}
+.rr-pane-secondary {
+  border: 2px dashed #9aa3af;
+}
+.rr-pane-badge {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: $primary;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .35);
+  transform: translate(-50%, -50%);
+}
+.rr-pane-badge-muted {
+  background: #6b7280;
+}
+
+/* ---- interactive quiz ---- */
+.rr-quiz {
+  border: 1px solid #dfe3e6;
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem 1.3rem;
+  margin: 1.2rem 0;
+  background: #fbfcfc;
+}
+.rr-quiz-question {
+  font-weight: 600;
+  margin-bottom: .8rem;
+}
+.rr-quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: .6rem .9rem;
+  margin-bottom: .5rem;
+  border: 1.5px solid #d0d5da;
+  border-radius: 7px;
+  background: #fff;
+  font-family: inherit;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.rr-quiz-option:hover:not(:disabled) {
+  border-color: $primary;
+  background: #f4f9f6;
+}
+.rr-quiz-option:disabled {
+  cursor: default;
+}
+.rr-quiz-option.is-correct {
+  border-color: #2c6e49;
+  background: #e3f0e8;
+  font-weight: 600;
+}
+.rr-quiz-option.is-incorrect {
+  border-color: #c0392b;
+  background: #fbeceb;
+}
+.rr-quiz-feedback {
+  margin-top: .7rem;
+  padding: .7rem .9rem;
+  border-radius: 7px;
+  font-size: .92rem;
+}
+.rr-quiz-feedback.is-correct {
+  background: #e3f0e8;
+  color: #1f4b33;
+}
+.rr-quiz-feedback.is-incorrect {
+  background: #fbeceb;
+  color: #7a2c22;
+}
+
+/* ---- live coding (webR) ---- */
+.rr-try-live {
+  font-size: .85rem;
+  font-weight: 600;
+  color: $primary;
+  margin: 1.2rem 0 -.4rem;
+}
+
+/* ---- R passport finale ---- */
+.rr-passport {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.rr-passport-form {
+  display: flex;
+  gap: .6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.rr-passport-revealed .rr-passport-form {
+  display: none;
+}
+.rr-passport-input {
+  padding: .6rem .9rem;
+  border: 1.5px solid #d0d5da;
+  border-radius: 7px;
+  font-size: 1rem;
+  min-width: 220px;
+}
+.rr-passport-input.rr-shake {
+  animation: rr-shake .4s;
+  border-color: #c0392b;
+}
+@keyframes rr-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.rr-passport-button {
+  padding: .6rem 1.3rem;
+  border: none;
+  border-radius: 7px;
+  background: $primary;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.rr-passport-button:hover {
+  background: #235a3a;
+}
+.rr-passport-card {
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 14px;
+  padding: 0 1.6rem;
+  background: linear-gradient(145deg, #2c6e49, #1f4b33);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transform: scale(.85) translateY(12px);
+  transition: opacity .5s ease, transform .5s cubic-bezier(.34, 1.56, .64, 1), max-height .5s ease, padding .5s ease;
+  pointer-events: none;
+}
+.rr-passport-revealed .rr-passport-card {
+  opacity: 1;
+  max-height: 600px;
+  padding: 2rem 1.6rem;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+.rr-passport-kicker {
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .75rem;
+  opacity: .85;
+}
+.rr-passport-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: .3rem 0 1rem;
+}
+.rr-passport-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, .5);
+  border-bottom: 1px dashed rgba(255, 255, 255, .5);
+  padding: .6rem 0;
+  margin-bottom: 1rem;
+  word-break: break-word;
+}
+.rr-passport-stamp {
+  display: inline-block;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  padding: .5rem .8rem;
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .05em;
+  transform: rotate(-12deg) scale(0);
+  opacity: 0;
+}
+.rr-passport-revealed .rr-passport-stamp {
+  animation: rr-stamp .5s .3s cubic-bezier(.34, 1.56, .64, 1) forwards;
+}
+@keyframes rr-stamp {
+  0% { transform: rotate(-12deg) scale(2.2); opacity: 0; }
+  60% { transform: rotate(-12deg) scale(.9); opacity: 1; }
+  100% { transform: rotate(-12deg) scale(1); opacity: 1; }
+}
+.rr-passport-msg {
+  margin-top: 1rem;
+  font-size: .95rem;
+  opacity: .95;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rr-passport-card, .rr-passport-input.rr-shake {
+    transition: opacity .3s !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  .rr-passport-revealed .rr-passport-stamp {
+    animation: none !important;
+    transform: rotate(-12deg) scale(1) !important;
+    opacity: 1 !important;
+  }
+}
